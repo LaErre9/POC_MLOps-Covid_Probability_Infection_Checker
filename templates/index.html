@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>COVID-19 Probability Detector</title>
+  </head>
+  <body>
+    <h1>COVID-19 Probability Detector</h1>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">Probability Detector</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">About Us</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Contact Us</a>
+      </li>
+      
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
+
+    <div class="container">
+     <h2 class="text-center">Coronavirus Probability Detector</h2>
+    
+    <form action="/" method="POST">
+  
+  <div class="form-group">
+    <label  for="Breathing Problem">Breathing Problem</label>
+    <select class="custom-select" name="Breathing Problem" id="Breathing Problem">
+      <option value="0">No</option>
+      <option value="1" >Yes</option>
+      
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label  for="Fever">Fever</label>
+    <select class="custom-select" name="Fever" id="Fever">
+      <option value="0">No</option>
+      <option value="1" >Yes</option>
+      
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label  for="Dry Cough">Dry Cough</label>
+    <select class="custom-select" name="Dry Cough" id="Dry Cough">
+      <option value="0">No</option>
+      <option value="1" >Yes</option>
+      
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label  for="Sore throat">Sore throat</label>
+    <select class="custom-select" name="Sore throat" id="Sore throat">
+      <option value="0">No</option>
+      <option value="1" >Yes</option>
+      
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label  for="Running Nose">Running Nose</label>
+    <select class="custom-select" name="Running Nose" id="Running Nose">
+      <option value="0">No</option>
+      <option value="1" >Yes</option>
+      
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label  for="Asthma">Asthma</label>
+    <select class="custom-select" name="Asthma" id="Asthma">
+      <option value="0">No</option>
+      <option value="1" >Yes</option>
+      
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label  for="Chronic Lung Disease">Chronic Lung Disease</label>
+    <select class="custom-select" name="Chronic Lung Disease" id="Chronic Lung Disease">
+      <option value="0">No</option>
+      <option value="1" >Yes</option>
+      
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label  for="Headache">Headache</label>
+    <select class="custom-select" name="Headache" id="Headache">
+      <option value="0">No</option>
+      <option value="1" >Yes</option>
+      
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label  for="Heart Disease">Heart Disease</label>
+    <select class="custom-select" name="Heart Disease" id="Heart Disease">
+      <option value="0">No</option>
+      <option value="1" >Yes</option>
+      
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label  for="Diabetes">Diabetes</label>
+    <select class="custom-select" name="Diabetes" id="Diabetes">
+      <option value="0">No</option>
+      <option value="1" >Yes</option>
+      
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label  for="Hyper Tension">Hyper Tension</label>
+    <select class="custom-select" name="Hyper Tension" id="Hyper Tension">
+      <option value="0">No</option>
+      <option value="1" >Yes</option>
+      
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label  for="Fatigue ">Fatigue</label>
+    <select class="custom-select" name="Fatigue " id="Fatigue ">
+      <option value="0">No</option>
+      <option value="1" >Yes</option>
+      
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label  for="Gastrointestinal ">Gastrointestinal </label>
+    <select class="custom-select" name="Gastrointestinal " id="Gastrointestinal ">
+      <option value="0">No</option>
+      <option value="1" >Yes</option>
+      
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label  for="Abroad travel">Abroad travel</label>
+    <select class="custom-select" name="Abroad travel" id="Abroad travel">
+      <option value="0">No</option>
+      <option value="1" >Yes</option>
+      
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label  for="Contact with COVID Patient">Contact with COVID Patient</label>
+    <select class="custom-select" name="Contact with COVID Patient" id="Contact with COVID Patient">
+      <option value="0">No</option>
+      <option value="1" >Yes</option>
+      
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label  for="Attended Large Gathering">Attended Large Gathering</label>
+    <select class="custom-select" name="Attended Large Gathering" id="Attended Large Gathering">
+      <option value="0">No</option>
+      <option value="1" >Yes</option>
+      
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label  for="Visited Public Exposed Places">Visited Public Exposed Places</label>
+    <select class="custom-select" name="Visited Public Exposed Places" id="Visited Public Exposed Places">
+      <option value="0">No</option>
+      <option value="1" >Yes</option>
+      
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label  for="Family working in Public Exposed Places">Family working in Public Exposed Places</label>
+    <select class="custom-select" name="Family working in Public Exposed Places" id="Family working in Public Exposed Places">
+      <option value="0">No</option>
+      <option value="1" >Yes</option>
+      
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label  for="Wearing Masks">Wearing Masks</label>
+    <select class="custom-select" name="Wearing Masks" id="Wearing Masks">
+      <option value="0">No</option>
+      <option value="1" >Yes</option>
+      
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label  for="Sanitization from Market">Sanitization from Market</label>
+    <select class="custom-select" name="Sanitization from Market" id="Sanitization from Market">
+      <option value="0">No</option>
+      <option value="1" >Yes</option>
+      
+    </select>
+  </div>
+
+
+  
+  <button class="btn btn-primary" > Submit </button>
+
+    </form>
+
+</div>
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>
