@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 import seaborn as sns
 
-from sklearn.linear_model import LogisticRegression
+from sklearn.discriminant_analysis import QuadraticDiscriminantAnalysis
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.ensemble import GradientBoostingRegressor
 from sklearn.neighbors import KNeighborsClassifier
@@ -51,7 +51,7 @@ if __name__== "__main__":
     Y_test = test[['COVID-19']].to_numpy().reshape(1086,)
 
    # ------------ LogisticRegression ---------------------------------------------
-    clf = LogisticRegression()
+    clf = QuadraticDiscriminantAnalysis()
     clf.fit(X_train, Y_train)
 
     #Score/Accuracy
