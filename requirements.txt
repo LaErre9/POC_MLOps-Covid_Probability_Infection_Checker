@@ -3,5 +3,3 @@ pandas
 seaborn
 matplotlib
 numpy
-pickle
-json
