@@ -52,7 +52,7 @@ if __name__== "__main__":
     Y_test = test[['COVID-19']].to_numpy().reshape(1086,)
 
    # ------------ LogisticRegression ---------------------------------------------
-    clf = QuadraticDiscriminantAnalysis()
+    clf = DecisionTreeClassifier()
     clf.fit(X_train, Y_train)
 
     #Score/Accuracy
