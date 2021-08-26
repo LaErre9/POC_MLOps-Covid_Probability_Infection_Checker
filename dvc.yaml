@@ -1,0 +1,9 @@
+stages:
+  train:
+    cmd: python myTraining.py
+    deps:
+    - myTraining.py
+    - data.csv
+    metrics:
+    - metrics.json:
+        cache: false

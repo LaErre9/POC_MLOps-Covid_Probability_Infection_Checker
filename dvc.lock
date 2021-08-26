@@ -1,0 +1,15 @@
+schema: '2.0'
+stages:
+  train:
+    cmd: python myTraining.py
+    deps:
+    - path: data.csv
+      md5: 02b3a4aa918c639fb02b6d3cd98914c4
+      size: 234007
+    - path: myTraining.py
+      md5: d8452f7c93722709dd9bf2069c4ae3ee
+      size: 4770
+    outs:
+    - path: metrics.json
+      md5: bb7d10954900192c72c9dd340b3dc570
+      size: 131
