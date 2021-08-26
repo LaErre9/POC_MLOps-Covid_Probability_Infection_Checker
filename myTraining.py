@@ -65,10 +65,10 @@ if __name__== "__main__":
 
     # matrice di confusione
     tn, fp, fn, tp = confusion_matrix(Y_test, y_pred).ravel()
-    acc_logreg = clf.score(X_test, Y_test)*100
-    precision = precision_score(Y_test, y_pred)*100
-    specificity = (tn / (tn + fp))*100
-    sensitivity = (tp / (tp + fn))*100
+    acc_logreg = clf.score(X_test, Y_test)
+    precision = precision_score(Y_test, y_pred)
+    specificity = (tn / (tn + fp))
+    sensitivity = (tp / (tp + fn))
 
     # matrice di confusione a video
     #plot_confusion_matrix(clf, X_test, Y_test)
