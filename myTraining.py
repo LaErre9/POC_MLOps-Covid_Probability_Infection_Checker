@@ -126,6 +126,6 @@ if __name__== "__main__":
    #  data = pickle.load(f)
    
     #dump information to that file
-    #pickle.dump(clf, file)
-    #file.close()
+    pickle.dump(clf, file)
+    file.close()
 
