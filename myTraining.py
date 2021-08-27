@@ -51,7 +51,7 @@ if __name__== "__main__":
     Y_test = test[['COVID-19']].to_numpy().reshape(1086,)
 
    # ------------ LogisticRegression ---------------------------------------------
-    clf = GaussianNB()
+    clf = KNeighborsClassifier(n_neighbors=20)
     clf.fit(X_train, Y_train)
 
     #Score/Accuracy
