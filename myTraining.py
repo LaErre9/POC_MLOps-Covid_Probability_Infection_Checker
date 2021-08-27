@@ -60,23 +60,27 @@ if __name__== "__main__":
 
     #Calcolo della prediction
     inputFeatures = [1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0]
-    infProb =clf.predict_proba([inputFeatures])[0][1]
+    infProb = clf.predict_proba([inputFeatures])[0][1]
     print(infProb)
 
     # matrice di confusione
     tn, fp, fn, tp = confusion_matrix(Y_test, y_pred).ravel()
+    # matrice di confusione a video
+    plot_confusion_matrix(clf, X_test, Y_test)
+    plt.show()
     acc_logreg = clf.score(X_test, Y_test)
     precision = precision_score(Y_test, y_pred)
+    print(precision)
     specificity = tn / (tn + fp)
+    print(specificity)
     sensitivity = tp / (tp + fn)
+    print(sensitivity)
 
-    # matrice di confusione a video
-    #plot_confusion_matrix(clf, X_test, Y_test)
-    #plt.show()
+
 
     with open("metrics.json", 'w') as outfile:
         json.dump({ "accuracy": acc_logreg, "specificity": specificity, "sensitivity":sensitivity, "precision": precision}, outfile)
-       
+
    # ----------------------------------------------------------------------------
    
    # Accuracy RandomForestRegressor
