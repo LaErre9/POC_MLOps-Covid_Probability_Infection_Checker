@@ -14,7 +14,6 @@ import matplotlib.pyplot as plt
 from sklearn.metrics import confusion_matrix
 from sklearn.metrics import plot_confusion_matrix
 from sklearn.metrics import precision_score
-
 import pickle
 import json
 
