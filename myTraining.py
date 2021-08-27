@@ -51,7 +51,7 @@ if __name__== "__main__":
     Y_test = test[['COVID-19']].to_numpy().reshape(1086,)
 
    # ------------ LogisticRegression ---------------------------------------------
-    clf = DecisionTreeClassifier()
+    clf = LogisticRegression
     clf.fit(X_train, Y_train)
 
     #Score/Accuracy
@@ -64,7 +64,7 @@ if __name__== "__main__":
 
     # matrice di confusione
     tn, fp, fn, tp = confusion_matrix(Y_test, y_pred).ravel()
-    # matrice di confusione a video
+    # matrice di confusione 
     plot_confusion_matrix(clf, X_test, Y_test)
     plt.show()
     acc_logreg = clf.score(X_test, Y_test)
