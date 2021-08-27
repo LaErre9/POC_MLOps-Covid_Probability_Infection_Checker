@@ -51,12 +51,11 @@ if __name__== "__main__":
     Y_test = test[['COVID-19']].to_numpy().reshape(1086,)
 
    # ------------ LogisticRegression ---------------------------------------------
-    clf = LogisticRegression()
+    clf = DecisionTreeClassifier()
     clf.fit(X_train, Y_train)
 
     #Score/Accuracy
     y_pred = clf.predict(X_test)
-
 
     #Calcolo della prediction
     inputFeatures = [1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0]
@@ -76,41 +75,38 @@ if __name__== "__main__":
     sensitivity = tp / (tp + fn)
     print(sensitivity)
 
-
-
     with open("metrics.json", 'w') as outfile:
         json.dump({ "accuracy": acc_logreg, "specificity": specificity, "sensitivity":sensitivity, "precision": precision}, outfile)
 
    # ----------------------------------------------------------------------------
    
-   # Accuracy RandomForestRegressor
+    # Accuracy RandomForestRegressor
     clf1 = RandomForestRegressor(n_estimators=1000)
     clf1.fit(X_train, Y_train)
     acc_randomforest = clf1.score(X_test, Y_test)*100
 
-   # Accuracy GradientBoostingRegressor
+    # Accuracy GradientBoostingRegressor
     GBR = GradientBoostingRegressor(n_estimators=100, max_depth=4)
     GBR.fit(X_train, Y_train)
     acc_gbk=GBR.score(X_test, Y_test)*100
 
-   # Accuracy KNeighborsClassifier
+    # Accuracy KNeighborsClassifier
     knn = KNeighborsClassifier(n_neighbors=20)
     knn.fit(X_train, Y_train)
     y_pred = knn.predict(X_test)
     #Score/Accuracy
     acc_knn=knn.score(X_test, Y_test)*100
 
-   # Accuracy DecisionTreeClassifier
+    # Accuracy DecisionTreeClassifier
     tree = tree.DecisionTreeClassifier()
     tree.fit(X_train,Y_train)
     y_pred1 = tree.predict(X_test)
     acc_decisiontree=tree.score(X_test, Y_test)*100
 
-   # Accuracy Naive_bayes
+    # Accuracy Naive_bayes
     model = GaussianNB()
     model.fit(X_train,Y_train)
     acc_gaussian= model.score(X_test, Y_test)*100
-
     
     # Classifica del miglior modello in funzione dello Score/Accuracy
     models = pd.DataFrame({
@@ -126,10 +122,10 @@ if __name__== "__main__":
     # open a file, where yu want to store the data
     file = open('model.pkl','wb')
 
-   #  with open('model.pkl', 'rb') as f:
-   #  data = pickle.load(f)
+    # with open('model.pkl', 'rb') as f:
+    # data = pickle.load(f)
    
-    #dump information to that file
+    # dump information to that file
     pickle.dump(clf, file)
     file.close()
 
