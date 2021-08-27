@@ -69,11 +69,9 @@ if __name__== "__main__":
     plt.show()
     acc_logreg = clf.score(X_test, Y_test)
     precision = precision_score(Y_test, y_pred)
-    print(precision)
     specificity = tn / (tn + fp)
-    print(specificity)
     sensitivity = tp / (tp + fn)
-    print(sensitivity)
+    
 
     with open("metrics.json", 'w') as outfile:
         json.dump({ "accuracy": acc_logreg, "specificity": specificity, "sensitivity":sensitivity, "precision": precision}, outfile)
