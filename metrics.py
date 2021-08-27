@@ -1,54 +1,53 @@
-import pandas as pd1 
+import pandas as pd
 import numpy as np
+import seaborn as sns
 
 from sklearn.linear_model import LogisticRegression
-from sklearn import preprocessing
-from sklearn.model_selection import cross_val_predict
-from sklearn.metrics import confusion_matrix
-from sklearn.metrics import roc_curve
-from sklearn.model_selection import train_test_split
-import json
-import seaborn as sns
-import matplotlib.pyplot as plt
-from sklearn.impute import SimpleImputer
+from sklearn.ensemble import RandomForestRegressor
+from sklearn.ensemble import GradientBoostingRegressor
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.naive_bayes import GaussianNB
+from sklearn import tree
 
-df = pd1.read_csv("data.csv")
+from myTraining import X_train, Y_train, X_test, Y_test
 
-#### Get features ready to model! 
-y = df.pop("cons_general").to_numpy()
-y[y< 4] = 0
-y[y>= 4] = 1
+   
+   
+# Accuracy RandomForestRegressor
+clf1 = RandomForestRegressor(n_estimators=1000)
+clf1.fit(X_train, Y_train)
+acc_randomforest = clf1.score(X_test, Y_test)*100
 
-# X = df.to_numpy()
-# X = preprocessing.scale(X) # Is standard
-# # Impute NaNs
+# Accuracy GradientBoostingRegressor
+GBR = GradientBoostingRegressor(n_estimators=100, max_depth=4)
+GBR.fit(X_train, Y_train)
+acc_gbk=GBR.score(X_test, Y_test)*100
 
-# imp = SimpleImputer(missing_values=np.nan, strategy='mean')
-# imp.fit(X)
-# X = imp.transform(X)
+# Accuracy KNeighborsClassifier
+knn = KNeighborsClassifier(n_neighbors=20)
+knn.fit(X_train, Y_train)
+y_pred = knn.predict(X_test)
+#Score/Accuracy
+acc_knn=knn.score(X_test, Y_test)*100
 
+# Accuracy DecisionTreeClassifier
+tree = tree.DecisionTreeClassifier()
+tree.fit(X_train,Y_train)
+y_pred1 = tree.predict(X_test)
+acc_decisiontree=tree.score(X_test, Y_test)*100
 
-# # Linear model
-# clf = LogisticRegression()
-# yhat = cross_val_predict(clf, X, y, cv=5)
+# Accuracy Naive_bayes
+model = GaussianNB()
+model.fit(X_train,Y_train)
+acc_gaussian= model.score(X_test, Y_test)*100
 
-# acc = np.mean(yhat==y)
-# tn, fp, fn, tp = confusion_matrix(y, yhat).ravel()
-# specificity = tn / (tn+fp)
-# sensitivity = tp / (tp + fn)
-
-# # Now print to file
-# with open("metrics.json", 'w') as outfile:
-#         json.dump({ "accuracy": acc, "specificity": specificity, "sensitivity":sensitivity}, outfile)
-
-# # Let's visualize within several slices of the dataset
-# score = yhat == y
-# score_int = [int(s) for s in score]
-# df['pred_accuracy'] = score_int
-
-# # Bar plot by region
-
-# sns.set_color_codes("dark")
-# ax = sns.barplot(x="region", y="pred_accuracy", data=df, palette = "Greens_d")
-# ax.set(xlabel="Region", ylabel = "Model accuracy")
-# plt.savefig("by_region.png",dpi=80)
+    
+# Classifica del miglior modello in funzione dello Score/Accuracy
+models = pd.DataFrame({
+    'Model': ['KNN', 'Logistic Regression', 
+              'Random Forest', 'Naive Bayes',   
+              'Decision Tree', 'Gradient Boosting Classifier'],
+    'Score': [acc_knn, acc_logreg, 
+              acc_randomforest, acc_gaussian, acc_decisiontree,
+              acc_gbk]})
+print(models.sort_values(by='Score', ascending=False))
