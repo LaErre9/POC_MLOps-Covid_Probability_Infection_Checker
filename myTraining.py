@@ -14,7 +14,6 @@ import matplotlib.pyplot as plt
 from sklearn.metrics import confusion_matrix
 from sklearn.metrics import plot_confusion_matrix
 from sklearn.metrics import precision_score
-
 import pickle
 import json
 
@@ -51,7 +50,7 @@ if __name__== "__main__":
     Y_test = test[['COVID-19']].to_numpy().reshape(1086,)
 
    # ------------ LogisticRegression ---------------------------------------------
-    clf = LogisticRegression()
+    clf = DecisionTreeClassifier()
     clf.fit(X_train, Y_train)
 
     #Score/Accuracy
@@ -126,5 +125,4 @@ if __name__== "__main__":
     # dump information to that file
     pickle.dump(clf, file)
     file.close()
-
 
