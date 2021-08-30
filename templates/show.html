@@ -8,13 +8,17 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-    <title>COVID-19 Probability Detector</title>
+    <title>SARS-CoV-2 (COVID-19) Probability Infection Checker - Result</title>
   </head>
   <body>
-    <h1>COVID-19 Probability Detector</h1>
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="#">Probability Detector</a>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-success">
+  <a class="navbar-brand" href="#">
+    <div>
+      <img src="covid_probability_detector.png" alt = "covid-icon-probabilty" width="60" height="auto" style="float: left; margin-left: auto; margin-right: 10px;">
+      <span style="margin-top: 10px;"><b>SARS-CoV-2 (COVID-19)</b><br><p style="font-size: small;">Probability Infection Checker</p></a></span>
+    </div>
+  </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -27,21 +31,17 @@
       <li class="nav-item">
         <a class="nav-link" href="#">About Us</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Contact Us</a>
-      </li>
-      
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
   </div>
 </nav>
 
     <div class="container">
-     <h2>Coronavirus Probability Detector</h2>
-      <p> Patient's Probability of Infection is {{inf}}%.</p>
-      <p> Thanks for Using COVID Probability Detector </p>
+      <h2 class="text-center" style="margin: 25px;"><b><span style="color: red;">Coronavirus </span></b>Probability <i>Infection</i> Checker</h2>
+      <h3>Il risultato</h3>
+      <hr>
+      <p> La probabilità di infezione del paziente è {{inf}}%. {{text}}</p>
+      <p> &#9742 <b>Numero Verde Regionale: </b><a href="https://www.salute.gov.it/portale/nuovocoronavirus/dettaglioContenutiNuovoCoronavirus.jsp?lingua=italiano&id=5364&area=nuovoCoronavirus&menu=vuoto">Clicca qui per l'elenco</a>
+      <br> &#9742 <b>Numero Pubblica Utilità: </b>1500
+      <br> &#128279 <b>Link utile: </b><a href="https://www.salute.gov.it/portale/nuovocoronavirus/dettaglioFaqNuovoCoronavirus.jsp?lingua=italiano&id=257">Tutte le informazioni a come comportarsi in caso di sintomi</a></p>
     <a href="/">
     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Go Back</button>
     </a>
