@@ -55,7 +55,7 @@ if __name__== "__main__":
 
    # ------------ LogisticRegression ---------------------------------------------
     
-    clf = LogisticRegression(tol=1000)
+    clf = LogisticRegression(tol=0.001)
     clf.fit(X_train, Y_train)
 
     #Score/Accuracy
