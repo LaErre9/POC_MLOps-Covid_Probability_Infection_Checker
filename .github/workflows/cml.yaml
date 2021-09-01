@@ -16,7 +16,7 @@ jobs:
           python myTraining.py
 
           echo "## Model metrics" > report.md
-          cat metrics.txt >> report.md
+          cat score.txt >> report.md
 
           echo "## Data visual" >> report.md
           cml-publish report.png --md >> report.md
