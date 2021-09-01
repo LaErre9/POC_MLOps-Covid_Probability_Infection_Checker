@@ -20,5 +20,7 @@ jobs:
 
           echo "## Data visual" >> report.md
           cml-publish report.png --md >> report.md
+          
+          cml-send-comment report.md
 
           
