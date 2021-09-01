@@ -15,7 +15,7 @@ jobs:
           pip install -r requirements.txt
           python myTraining.py
 
-          echo "## Model metrics" > report.md
+          echo "## Model score" > report.md
           cat score.txt >> report.md
 
           echo "## Data visual" >> report.md
