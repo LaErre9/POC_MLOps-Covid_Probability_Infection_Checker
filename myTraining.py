@@ -1,19 +1,22 @@
+from numpy.random.mtrand import seed
 import pandas as pd
 import numpy as np
 import seaborn as sns
+from matplotlib import pyplot
 
 from sklearn.linear_model import LogisticRegression
-from sklearn.ensemble import RandomForestRegressor
-from sklearn.ensemble import GradientBoostingRegressor
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.naive_bayes import GaussianNB
-from sklearn import tree
+from sklearn.metrics import mean_squared_error, r2_score
 
 #librerie per metriche
 import matplotlib.pyplot as plt
 from sklearn.metrics import confusion_matrix
 from sklearn.metrics import plot_confusion_matrix
 from sklearn.metrics import precision_score
+
+# librerie per monitoraggio
+from yellowbrick.classifier import DiscriminationThreshold
 
 import pickle
 import json
@@ -51,7 +54,8 @@ if __name__== "__main__":
     Y_test = test[['COVID-19']].to_numpy().reshape(1086,)
 
    # ------------ LogisticRegression ---------------------------------------------
-    clf = LogisticRegression()
+    
+    clf = LogisticRegression(tol=1000)
     clf.fit(X_train, Y_train)
 
     #Score/Accuracy
@@ -64,64 +68,39 @@ if __name__== "__main__":
 
     # matrice di confusione
     tn, fp, fn, tp = confusion_matrix(Y_test, y_pred).ravel()
-    # matrice di confusione 
-    plot_confusion_matrix(clf, X_test, Y_test)
-    plt.show()
-    acc_logreg = clf.score(X_test, Y_test)
+    # plot_confusion_matrix(clf, X_test, Y_test)
+    # plt.show()
+    
+    accuracy_logreg = clf.score(X_test, Y_test)
     precision = precision_score(Y_test, y_pred)
     specificity = tn / (tn + fp)
     sensitivity = tp / (tp + fn)
     
-
     with open("metrics.json", 'w') as outfile:
-        json.dump({ "accuracy": acc_logreg, "specificity": specificity, "sensitivity":sensitivity, "precision": precision}, outfile)
+        json.dump({ "accuracy": accuracy_logreg, "specificity": specificity, "sensitivity":sensitivity, "precision": precision}, outfile)
 
+    # Report test set score
+    train_score = clf.score(X_train, Y_train) * 100
+    test_score = clf.score(X_test, Y_test) * 100
+    print(train_score)
+    print(test_score)
+
+    # Scrittura dei scores al file
+    with open("score.txt", 'w') as outfile:
+            outfile.write("Training variance explained: %2.1f%%\n" % train_score)
+            outfile.write("Test variance explained: %2.1f%%\n" % test_score)
+
+    # Visualizzatore
+    visualizer_report = DiscriminationThreshold(clf)
+    visualizer_report.fit(X_train, Y_train)  
+    visualizer_report.score(X_test, Y_test)  
+    visualizer_report.show("report.png")     
+  
    # ----------------------------------------------------------------------------
-   
-    # Accuracy RandomForestRegressor
-    clf1 = RandomForestRegressor(n_estimators=1000)
-    clf1.fit(X_train, Y_train)
-    acc_randomforest = clf1.score(X_test, Y_test)*100
-
-    # Accuracy GradientBoostingRegressor
-    GBR = GradientBoostingRegressor(n_estimators=100, max_depth=4)
-    GBR.fit(X_train, Y_train)
-    acc_gbk=GBR.score(X_test, Y_test)*100
-
-    # Accuracy KNeighborsClassifier
-    knn = KNeighborsClassifier(n_neighbors=20)
-    knn.fit(X_train, Y_train)
-    y_pred = knn.predict(X_test)
-    #Score/Accuracy
-    acc_knn=knn.score(X_test, Y_test)*100
-
-    # Accuracy DecisionTreeClassifier
-    tree = tree.DecisionTreeClassifier()
-    tree.fit(X_train,Y_train)
-    y_pred1 = tree.predict(X_test)
-    acc_decisiontree=tree.score(X_test, Y_test)*100
-
-    # Accuracy Naive_bayes
-    model = GaussianNB()
-    model.fit(X_train,Y_train)
-    acc_gaussian= model.score(X_test, Y_test)*100
-    
-    # Classifica del miglior modello in funzione dello Score/Accuracy
-    models = pd.DataFrame({
-    'Model': ['KNN', 'Logistic Regression', 
-              'Random Forest', 'Naive Bayes',   
-              'Decision Tree', 'Gradient Boosting Classifier'],
-    'Score': [acc_knn, acc_logreg, 
-              acc_randomforest, acc_gaussian, acc_decisiontree,
-              acc_gbk]})
-    #print(models.sort_values(by='Score', ascending=False))
 
     # open a file, where yu want to store the data
     file = open('model.pkl','wb')
 
-    # with open('model.pkl', 'rb') as f:
-    # data = pickle.load(f)
-   
     # dump information to that file
     pickle.dump(clf, file)
     file.close()

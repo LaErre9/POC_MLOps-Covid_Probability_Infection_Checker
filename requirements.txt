@@ -11,3 +11,4 @@ Pillow==8.3.1
 scikit-learn==0.24.2
 seaborn==0.11.2
 Werkzeug==2.0.1
+yellowbrick
