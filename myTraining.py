@@ -96,7 +96,6 @@ if __name__== "__main__":
     visualizer_report.show("report.png")     
   
    # ----------------------------------------------------------------------------
-
     # open a file, where yu want to store the data
     file = open('model.pkl','wb')
 
