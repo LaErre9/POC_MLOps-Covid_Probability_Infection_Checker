@@ -98,4 +98,4 @@ models = pd.DataFrame({
              accuracy_randomforest, accuracy_gaussian, accuracy_decisiontree,
              accuracy_gbk]})
 classifica = models.sort_values(by='Score', ascending=False)
-classifica.to_csv("models/classifica_accuracy_model")
+classifica.to_csv("models/classifica_accuracy_model.csv")

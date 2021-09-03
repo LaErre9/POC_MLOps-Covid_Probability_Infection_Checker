@@ -14,12 +14,16 @@ import matplotlib.pyplot as plt
 from sklearn.metrics import confusion_matrix
 from sklearn.metrics import plot_confusion_matrix
 from sklearn.metrics import precision_score
+from yellowbrick.base import Visualizer
 
 # librerie per monitoraggio
 from yellowbrick.classifier import DiscriminationThreshold
+from yellowbrick.classifier import ROCAUC
 
 import pickle
 import json
+
+from yellowbrick.classifier.prcurve import PrecisionRecallCurve
 
 def data_split(data, ratio):
     np.random.seed(42)
@@ -102,11 +106,22 @@ ha come probabilita' di infezione: \n")
             outfile.write("Test variance explained: %2.1f%%\n" % test_score)
 
     # Visualizzatore
+
     visualizer_report = DiscriminationThreshold(clf)
     visualizer_report.fit(X_train, Y_train) 
     visualizer_report.score(X_test, Y_test)  
     visualizer_report.show("results/report_threshold.png")
   
+    visualizer_ROC = ROCAUC(clf, classes=["not_spam", "is_spam"])
+    visualizer_ROC.fit(X_train, Y_train)
+    visualizer_ROC.score(X_test, Y_test)
+    visualizer_ROC.show("results/report_ROC.png")
+
+    visualizer_Recall = PrecisionRecallCurve(clf)
+    visualizer_Recall.fit(X_train, Y_train)
+    visualizer_Recall.score(X_test, Y_test)
+    visualizer_Recall.show("results/report_Recall.png")
+   
    # ----------------------------------------------------------------------------
     # open a file, where yu want to store the data
     file = open('model.pkl','wb')
