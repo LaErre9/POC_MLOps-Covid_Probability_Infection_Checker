@@ -32,7 +32,7 @@ def data_split(data, ratio):
 if __name__== "__main__":
 
     # Read The Data
-    df = pd.read_csv('data.csv')
+    df = pd.read_csv('data/data.csv')
     train, test = data_split(df, 0.2)
     X_train = train[['Breathing Problem', 'Fever', 'Dry Cough', 'Sore throat',
        'Running Nose', 'Asthma', 'Chronic Lung Disease', 'Headache',
@@ -63,19 +63,31 @@ if __name__== "__main__":
     #Calcolo della prediction
     inputFeatures = [1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0]
     infProb = clf.predict_proba([inputFeatures])[0][1]
+    with open("results/prediction_LogisticRegression.txt", 'w') as outfile:
+            outfile.write("TEST Risultato della predizione LogisticRegression\n")
+            outfile.write("Paziente X\n \
+- problema di respirazione (breathing problem)\n \
+- febbre (fever)\n \
+- fatica (fatigue)\n \
+- tosse secca(dry cough)\n \
+- malattia cardiaca (heart disease)\n \
+- ipertensione (hyper tension)\n \
+ha come probabilita' di infezione: \n")
+            outfile.write(str(infProb))
     print(infProb)
 
     # matrice di confusione
     tn, fp, fn, tp = confusion_matrix(Y_test, y_pred).ravel()
     # plot_confusion_matrix(clf, X_test, Y_test)
-    # plt.show()
+    # plt.savefig("models/confusion_matrix_for_test.png")
     
+    # calcoli
     accuracy_logreg = clf.score(X_test, Y_test)
     precision = precision_score(Y_test, y_pred)
     specificity = tn / (tn + fp)
     sensitivity = tp / (tp + fn)
     
-    with open("metrics.json", 'w') as outfile:
+    with open("results/metrics.json", 'w') as outfile:
         json.dump({ "accuracy": accuracy_logreg, "specificity": specificity, "sensitivity":sensitivity, "precision": precision}, outfile)
 
     # Report test set score
@@ -85,15 +97,15 @@ if __name__== "__main__":
     print(test_score)
 
     # Scrittura dei scores al file
-    with open("score.txt", 'w') as outfile:
+    with open("results/score_monitoring.txt", 'w') as outfile:
             outfile.write("Training variance explained: %2.1f%%\n" % train_score)
             outfile.write("Test variance explained: %2.1f%%\n" % test_score)
 
     # Visualizzatore
     visualizer_report = DiscriminationThreshold(clf)
-    visualizer_report.fit(X_train, Y_train)  
+    visualizer_report.fit(X_train, Y_train) 
     visualizer_report.score(X_test, Y_test)  
-    visualizer_report.show("report.png")     
+    visualizer_report.show("results/report_threshold.png")
   
    # ----------------------------------------------------------------------------
     # open a file, where yu want to store the data

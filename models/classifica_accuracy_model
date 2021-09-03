@@ -1,0 +1,7 @@
+,Model,Score
+4,Decision Tree,98.43462246777163
+1,Logistic Regression,97.23756906077348
+0,KNN,96.22467771639043
+5,Gradient Boosting Classifier,89.57274807620892
+3,Naive Bayes,76.61141804788214
+2,Random Forest,48.18992995680963

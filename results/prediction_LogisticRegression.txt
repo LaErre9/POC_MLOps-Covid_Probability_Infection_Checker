@@ -1,0 +1,10 @@
+TEST Risultato della predizione LogisticRegression
+Paziente X
+ - problema di respirazione (breathing problem)
+ - febbre (fever)
+ - fatica (fatigue)
+ - tosse secca(dry cough)
+ - malattia cardiaca (heart disease)
+ - ipertensione (hyper tension)
+ ha come probabilita' di infezione: 
+0.6512933809962855

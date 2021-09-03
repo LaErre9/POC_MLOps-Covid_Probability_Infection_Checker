@@ -3,7 +3,7 @@ stages:
     cmd: python myTraining.py
     deps:
     - myTraining.py
-    - data.csv
+    - data/data.csv
     metrics:
-    - metrics.json:
+    - results/metrics.json:
         cache: false
