@@ -112,15 +112,15 @@ ha come probabilita' di infezione: \n")
     visualizer_report.score(X_test, Y_test)  
     visualizer_report.show("results/report_threshold.png")
   
-    visualizer_ROC = ROCAUC(clf, classes=["not_spam", "is_spam"])
-    visualizer_ROC.fit(X_train, Y_train)
-    visualizer_ROC.score(X_test, Y_test)
-    visualizer_ROC.show("results/report_ROC.png")
+    # visualizer_ROC = ROCAUC(clf, classes=["not_spam", "is_spam"])
+    # visualizer_ROC.fit(X_train, Y_train)
+    # visualizer_ROC.score(X_test, Y_test)
+    # visualizer_ROC.show("results/report_ROC.png")
 
-    visualizer_Recall = PrecisionRecallCurve(clf)
-    visualizer_Recall.fit(X_train, Y_train)
-    visualizer_Recall.score(X_test, Y_test)
-    visualizer_Recall.show("results/report_Recall.png")
+    # visualizer_Recall = PrecisionRecallCurve(clf)
+    # visualizer_Recall.fit(X_train, Y_train)
+    # visualizer_Recall.score(X_test, Y_test)
+    # visualizer_Recall.show("results/report_Recall.png")
    
    # ----------------------------------------------------------------------------
     # open a file, where yu want to store the data

@@ -20,9 +20,7 @@ jobs:
 
           echo "## Data visual" >> report.md
           cml-publish results/report_threshold.png --md >> report.md
-          cml-publish results/report_ROC.png --md >> report.md
-          cml-publish results/report_Recall.png --md >> report.md
-          
+                    
           cml-send-comment report.md
 
           
