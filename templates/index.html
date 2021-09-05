@@ -1,21 +1,21 @@
 <!doctype html>
-<html lang="en">
+<html lang="it">
   <head>
-    <!-- Required meta tags -->
+    <!-- Meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 
     <title>SARS-CoV-2 (COVID-19) Probability Infection Checker</title>
   </head>
+
   <body>
-    
+    <!--NavBar-->
     <nav class="navbar navbar-expand-lg navbar-dark bg-success">
   <a class="navbar-brand" href="#">
     <div>
-      <img src="https://raw.githubusercontent.com/LaErre9/Tesi_Experiment_MLOps/main/templates/covid_probability_detector.png?token=AB475L5252BJHHS27EP2RYLBGZHPU" alt = "covid-icon-probabilty" width="60" height="auto" style="float: left; margin-left: auto; margin-right: 10px;">
       <span style="margin-top: 10px;"><b>SARS-CoV-2 (COVID-19)</b><br><p style="font-size: small;">Probability Infection Checker</p></a></span>
     </div>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -28,20 +28,23 @@
         <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">About Us</a>
+        <a class="nav-link" href="#About">About</a>
       </li>
 
   </div>
 </nav>
 
+<!--Contenuto del body-->
+    <!--Titolo centrale e paragrafo testo-->
     <div class="container">
+     <center><img src="covid_probability_detector.png" alt = "covid-icon-probabilty" width="65" height="auto" style="margin-top: 15px; margin-bottom: -20px;"></center>
      <h2 class="text-center" style="margin: 25px;"><b><span style="color: red;">Coronavirus </span></b>Probability <i>Infection</i> Checker</h2>
-    <p>Indica "Yes" se presenti i seguenti sintomi, malattie o informazioni utili per il calcolo della possibile probabilità di infezione al virus SARS-CoV-2 (COVID-19). <br>
+    <p>Indica <b>"Yes"</b> se presenti i seguenti sintomi, malattie o informazioni utili per il calcolo della possibile probabilità di infezione al virus SARS-CoV-2 (COVID-19). <br>
     	</p>
     <form action="/" method="POST">
 
   <h3>Sintomi</h3>
-  <h7>Presenti questi sintomi?</h7>
+  <h7>Presenta questi sintomi?</h7>
   <hr>
 
   <!--Form problema di respirazione-->
@@ -55,7 +58,7 @@
 
   <!--Form febbre-->
   <div class="form-group">
-    <label  for="Fever"><b>Fever</b><i> (Febbre)</i><br>Temperatura corporea > 37.5 °C (> 707 °F)</label>
+    <label  for="Fever"><b>Fever</b><i> (Febbre)</i><br>Temperatura corporea > 37.5 °C (> 99.5 °F)</label>
     <select class="custom-select" name="Fever" id="Fever">
       <option value="0">No</option>
       <option value="1" >Yes</option> 
@@ -109,7 +112,7 @@
 
   <!--Form fatica-->
   <div class="form-group">
-    <label  for="Fatigue "><b>Fatigue</b><i> (Fatica)</i><br> Fatica e stress</label>
+    <label  for="Fatigue "><b>Fatigue</b><i> (Fatica)</i><br> Fatica, stress e spossatezza</label>
     <select class="custom-select" name="Fatigue " id="Fatigue ">
       <option value="0">No</option>
       <option value="1" >Yes</option>
@@ -128,6 +131,7 @@
   <h3 style="margin-top: 5%;">Malattie critiche per il COVID-19</h3>
   <h7>Se presenti queste malattie, stai attento!</h7>
   <hr>
+
   <!--Form Malattia polmonare cronica -->
   <div class="form-group">
     <label  for="Chronic Lung Disease"><b>Chronic Lung Disease</b><i> (Malattia polmonare cronica)</i><br> Patologia dell'apparato respiratorio caratterizzata da un'ostruzione irreversibile di bronchi e polmoni</label>
@@ -222,6 +226,7 @@
     </select>
   </div>
 
+  <!--Form Sanitization from market-->
   <div class="form-group">
     <label  for="Sanitization from Market"><b>Sanitization from Market</b><i> (Sanificazione del mercato)</i><br> Sanificazione dei luoghi mercatali esposti</label>
     <select class="custom-select" name="Sanitization from Market" id="Sanitization from Market">
@@ -230,20 +235,38 @@
     </select>
   </div>
 
-
+  <!--Button Submit-->
   <p>&#9888; N.B Il sistema di calcolo è stato realizzato per soli scopi dimostrativi pertanto il risultato potrebbe non essere attendibile. Inoltre i dati inseriti non verranno memorizzati.</p>
-  <button class="btn btn-primary" > Submit </button>
+  <button class="btn btn-primary" > Calculate the probability of infection at COVID-19 </button>
     <p> </p>
     </form>
+
+  <!--About-->
+  <a name = "About">
+    <h3 style="margin-top: 80px;">About</h3>
+    <hr>
+    <div>
+      <p>Questo applicativo è stato realizzato con <img src="https://cdn3.iconfinder.com/data/icons/logos-and-brands-adobe/512/267_Python-512.png" style="width: 20px; height: auto; margin-right: 5px;"><b>Python</b> e il framework <img src="https://cdn.iconscout.com/icon/free/png-256/flask-51-285137.png" style="width: 20px; height: auto; margin-right: 5px;"><b>Flask</b>, distribuito con 
+      <img src="https://cdn.iconscout.com/icon/free/png-512/heroku-3628830-3030107.png" style="width: 20px; height: auto; margin-right: 5px;"> <b>Heroku</b> e <i>Automatic Deploy</i> del main branch del repository <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Octicons-mark-github.svg/2048px-Octicons-mark-github.svg.png" style="width: 20px; height: auto; margin-right: 5px;"><b>GitHub</b>
+      disponibile al seguente link: <a href="#">Proof-of-Concept MLOps Covid_Probability_Infection_Checker</a></p>
+      <center><img src="scheme_function.png" style="width: 100%; height: 100%;"></center>
+    </div>
+  </a>
+
+  <!--Copyright-->
+  <h3 style="margin-top: 80px;">Copyright</h3>
+    <hr>
+    <div>
+      <p>Sviluppato solo per scopi dimostrativi e funzionali per il lavoro di Tesi Triennale "Machine Learning Operations: principi, caratteristice e applicazione"</p> 
+      </div>
 
 </div>
 
 
-
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <!--JavaScript-->
+    <!--jQuery, Popper.js, Bootstrap JS-->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
   </body>
 </html>
