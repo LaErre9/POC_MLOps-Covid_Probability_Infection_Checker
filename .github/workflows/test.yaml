@@ -16,7 +16,7 @@ jobs:
           python test/test_model.py
 
           # Report the difference
-          echo "## Experiment vs. Main" > report.md
+          echo "## Experiment vs. Main" >> report.md
           echo "Predizione fatta sui seguenti sintomi = breathing problem, fever, dry cough, heart disease, hyper tension, fatigue." > report.md
           git fetch --prune
           dvc metrics diff main --targets test/test_score_and_prediction.json --show-md >> report.md
