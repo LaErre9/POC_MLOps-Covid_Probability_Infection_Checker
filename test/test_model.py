@@ -1,4 +1,3 @@
-from _pytest.python_api import approx
 from numpy.random.mtrand import seed
 import pandas as pd
 import numpy as np
