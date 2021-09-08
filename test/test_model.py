@@ -11,6 +11,7 @@ from sklearn.linear_model import LogisticRegressionCV
 from sklearn.linear_model import LogisticRegression
 
 # Altre librerie
+import pickle
 import json
 
 # Configurazione del dataset e suddivisione dei dati in training e test set
@@ -62,4 +63,10 @@ if __name__== "__main__":
     with open("test/test_score_and_prediction.json", 'w') as outfile:
         json.dump({ "Accuracy": accuracy_logreg, "Prediction":infProb}, outfile)
 
-    
+    # open a file, where yu want to store the data
+    file = open('model.pkl','wb')
+
+    # dump information to that file
+    pickle.dump(clf, file)
+    file.close()
+
