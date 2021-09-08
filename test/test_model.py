@@ -1,7 +1,6 @@
 ## 4.4.5 Test di predizione del modello ML ##
 
 # Librerie utili per l'analisi dei dati
-from _pytest.python_api import approx
 from numpy.random.mtrand import seed
 import pandas as pd
 import numpy as np
