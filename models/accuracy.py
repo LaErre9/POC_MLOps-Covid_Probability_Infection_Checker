@@ -1,3 +1,7 @@
+#################################################################
+# 4.4.1 Analisi dell'accuratezza degli algoritmi di addestramento
+#################################################################
+
 # Librerie utili per l'analisi dei dati
 import pandas as pd
 import numpy as np
@@ -6,6 +10,7 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 from numpy.random.mtrand import seed
 
+# Algoritmi di Machine Learning utilizzati
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.linear_model import LogisticRegression
 from sklearn.ensemble import GradientBoostingRegressor
@@ -20,9 +25,7 @@ matplotlib.rcParams['figure.figsize'] =[8,8]
 matplotlib.rcParams.update({'font.size': 15})
 matplotlib.rcParams['font.family'] = 'sans-serif'
 
-# --- Preparazione dei dati ---
-# Caricamento del dataset
-
+# Configurazione del dataset e suddivisione dei dati in training e test set
 def data_split(data, ratio):
     np.random.seed(42)
     shuffled = np.random.permutation(len(data))
@@ -55,7 +58,7 @@ if __name__== "__main__":
     Y_train = train[['COVID-19']].to_numpy().reshape(4348,)
     Y_test = test[['COVID-19']].to_numpy().reshape(1086,)
     
-# Analisi delle accuratezze di ogni algoritmo di apprendimento
+## Analisi delle accuratezze di ogni algoritmo di apprendimento
 # Accuracy LogisticRegression
 clf = LogisticRegression()
 clf.fit(X_train, Y_train)

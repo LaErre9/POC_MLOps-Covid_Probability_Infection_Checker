@@ -1,12 +1,16 @@
+#################################################
+# 4.6 Distribuzione del modello
+#################################################
 from flask import Flask, render_template, request
 app = Flask(__name__)
 import pickle
 
-
+# Apertura del model.pkl per estrarre i dati passati da myTraining.py
 file = open('model.pkl', 'rb')
-
 clf = pickle.load(file)
 file.close()
+
+# Applicazione FLASK
 @app.route('/', methods=["GET", "POST"])
 def covid_checker():
     if request.method == "POST":
@@ -31,12 +35,13 @@ def covid_checker():
         family = int(myDict['Family working in Public Exposed Places'])
         wearing = int(myDict['Wearing Masks'])
         sanitization = int(myDict['Sanitization from Market'])
-        # Code for Inference
+        # Inferenza
         inputFeatures = [breating, fever, dry, sore, running, asthma, chronic, headache,
                 heart, diabetes, hyper, fatigue, gastrointestinal, abroad, contact, 
                 attended, visited, family, wearing, sanitization]
         infProb =clf.predict_proba([inputFeatures])[0][1]
-        #print(infProb)
+        
+        # Verifica del risultato
         if infProb >= 0 and infProb <= 0.50:
             str1 = " Pertanto la Sua situazione non desta preoccupazione verso l'infezione al SARS-CoV-2 (COVID-19). \
             Se comunque la preoccupazione sussiste è bene chiamare il proprio medico di fiducia/famiglia per informazioni \
@@ -53,8 +58,7 @@ def covid_checker():
             return render_template('show.html', inf = round((infProb*100), 0), text = str3) 
     return render_template('index.html')
     
-   # return 'Hello, World!' + str(infProb)
-
-
+   
+# main
 if __name__=="__main__":
     app.run(debug=True)
