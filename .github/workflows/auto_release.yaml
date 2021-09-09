@@ -1,13 +1,13 @@
 # Name of the workflow
 name: Release
 
-# Run on every commit tag which begins with "v" (e.g., "v0.1.4")
+# Run ogni volta che viene fatto il commit tag con "v" (e.g. "v0.1.4")
 on:
   push:
     tags:
       - "v*"
 
-# Automatically create a GitHub Release, with release details specified (the relevant commits)
+# Crea automaticamente una release GitHub, con i dettagli della release specificati (i relativi commit)
 jobs:
   release:
     name: "Release"
@@ -17,5 +17,5 @@ jobs:
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
           prerelease: false
-          title: "Development Build"
+          title: "v*"
           
