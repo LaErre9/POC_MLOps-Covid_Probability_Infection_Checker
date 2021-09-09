@@ -1,15 +1,13 @@
-name: "tagged-release"
+name: "release"
 
 on:
   push:
     branches:
       - "main"
-    tags:
-      - "v*"
 
 jobs:
-  tagged-release:
-    name: "Tagged Release"
+  pre-release:
+    name: "Release"
     runs-on: "ubuntu-latest"
 
     steps:
@@ -21,5 +19,6 @@ jobs:
       - uses: "marvinpinto/action-automatic-releases@latest"
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
-          prerelease: false
-          
+          automatic_release_tag: "latest"
+          prerelease: true
+          title: "POC_MLOps_Covid_Probability_Infection_Checker"
