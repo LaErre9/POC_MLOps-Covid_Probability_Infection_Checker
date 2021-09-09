@@ -1,23 +1,25 @@
-name: Release
+name: "pre-release"
+
 on:
   push:
     branches:
-      - main
-      - next
-      - beta
-      - "*.x" # maintenance releases branches
+      - "main"
 
 jobs:
-  release:
-    name: release
-    runs-on: ubuntu-latest
+  pre-release:
+    name: "Pre Release"
+    runs-on: "ubuntu-latest"
+
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      # ...
+      - name: "Build & test"
+        run: |
+          echo "done!"
+
+      - uses: "marvinpinto/action-automatic-releases@latest"
         with:
-          cache: npm
-      - run: npm ci
-      - run: npx semantic-release
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.SEMANTIC_RELEASE_BOT_NPM_TOKEN }}
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          automatic_release_tag: "latest"
+          prerelease: true
+          title: "Development Build"
+          
