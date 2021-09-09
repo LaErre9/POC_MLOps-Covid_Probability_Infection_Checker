@@ -17,5 +17,5 @@ jobs:
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
           prerelease: false
-          title: "v*"
+          title: "POC_MLOps_COVID-19_probability_infection_checker"
           
