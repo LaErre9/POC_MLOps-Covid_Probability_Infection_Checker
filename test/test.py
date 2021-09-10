@@ -1,4 +1,4 @@
-## 4.6 Test Automatizzato del modello ML ##
+## 4.5 Test Automatizzato del modello ML ##
 
 # Librerie utili per l'analisi dei dati
 from numpy.random.mtrand import seed
