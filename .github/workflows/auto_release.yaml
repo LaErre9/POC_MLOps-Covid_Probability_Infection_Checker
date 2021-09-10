@@ -1,0 +1,21 @@
+# Name of the workflow
+name: Release
+
+# Run ogni volta che viene fatto il commit tag con "v" (e.g. "v0.1.4")
+on:
+  push:
+    tags:
+      - "v*"
+
+# Crea automaticamente una release GitHub, con i dettagli della release specificati (i relativi commit)
+jobs:
+  release:
+    name: "Release"
+    runs-on: "ubuntu-latest"
+    steps:
+      - uses: "marvinpinto/action-automatic-releases@latest"
+        with:
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          prerelease: false
+          title: "POC_MLOps_COVID-19_probability_infection_checker"
+          

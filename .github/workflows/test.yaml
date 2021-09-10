@@ -1,4 +1,5 @@
-name: covid-model-auto-test
+## 4.4.5 Test di predizione del modello ML
+name: prediction-test
 on: [push]
 jobs:
   run:
@@ -6,12 +7,22 @@ jobs:
     container: docker://dvcorg/cml-py3:latest
     steps:
       - uses: actions/checkout@v2
-      - name: sanity-check
+      - name: cml-run
         env:
           REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
 
-          # Your ML workflow goes here
+          # Run Test
           pip install -r requirements.txt
-          python myTraining.py
+          python test/test_model.py
+
+          # Report the difference
+          echo "## Experiment vs. Main" > report.md
+          echo "Predizione fatta sui seguenti sintomi = breathing problem, fever, dry cough, heart disease, hyper tension, fatigue." >> report.md
+          git fetch --prune
+          dvc metrics diff main --targets test/test_score_and_prediction.json --show-md >> report.md
+          echo "Se 'change' ha valore compreso tra **[-0.01, 0.01]** allora è possibile fare il merge con la nuova soluzione" >> report.md
+
+          cml-send-comment report.md
+          
           

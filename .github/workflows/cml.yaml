@@ -1,3 +1,4 @@
+## 4.7 Continuous Integration per il modello ML ##
 name: covid-cml
 on: [push]
 jobs:
@@ -16,11 +17,11 @@ jobs:
           python myTraining.py
 
           echo "## Model score" > report.md
-          cat score.txt >> report.md
+          cat results/score_monitoring.txt >> report.md
 
           echo "## Data visual" >> report.md
-          cml-publish report.png --md >> report.md
-          
+          cml-publish results/report_threshold.png --md >> report.md
+                    
           cml-send-comment report.md
 
           
