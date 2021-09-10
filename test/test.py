@@ -37,23 +37,14 @@ if __name__== "__main__":
        'Family working in Public Exposed Places', 'Wearing Masks',
        'Sanitization from Market']].to_numpy()
 
-    # X_test = test[['Breathing Problem', 'Fever', 'Dry Cough', 'Sore throat',
-    #    'Running Nose', 'Asthma', 'Chronic Lung Disease', 'Headache',
-    #    'Heart Disease', 'Diabetes', 'Hyper Tension', 'Fatigue ',
-    #    'Gastrointestinal ', 'Abroad travel', 'Contact with COVID Patient',
-    #    'Attended Large Gathering', 'Visited Public Exposed Places',
-    #    'Family working in Public Exposed Places', 'Wearing Masks',
-    #    'Sanitization from Market']].to_numpy()
-
     Y_train = train[['COVID-19']].to_numpy().reshape(4348,)
-    # Y_test = test[['COVID-19']].to_numpy().reshape(1086,)
-
-    # Generate some data for validation
+    
+    # Generazione di alcuni dati per la validazione
     clf = LogisticRegression()
     clf.fit(X_train, Y_train)
     X_test, y = make_regression(1000, n_features=20)
     
-    # Test on the model
+    # Test sul modello
     y_hat = clf.predict(X_test)
     
 
