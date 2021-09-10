@@ -49,7 +49,7 @@ if __name__== "__main__":
     # Y_test = test[['COVID-19']].to_numpy().reshape(1086,)
 
     # Generate some data for validation
-    clf = Lasso()
+    clf = LogisticRegression()
     clf.fit(X_train, Y_train)
     X_test, y = make_regression(1000, n_features=20)
     
