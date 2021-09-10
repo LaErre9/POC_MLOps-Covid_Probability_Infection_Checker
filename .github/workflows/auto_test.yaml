@@ -15,5 +15,6 @@ jobs:
           # Your ML workflow goes here
           pip install -r requirements.txt
           python myTraining.py
+          python test/test.py
         
           
