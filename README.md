@@ -13,14 +13,14 @@ oppure nella *home* del repository e nella sezione *Environments* cliccare **cov
 **Screen della Web App:**
 
 <p align = "center">
-<img src="https://raw.githubusercontent.com/LaErre9/POC_MLOps-Covid_Probability_Infection_Checker/main/templates/screenWebApp.png?token=AB475LYA3AE6GEN74PCL5FDBIXESO" alt = "covid-icon-probabilty" width="auto" height="300" align="middle" style="margin-top: 15px; margin-bottom: -20px;">
+<img src="https://raw.githubusercontent.com/LaErre9/POC_MLOps-Covid_Probability_Infection_Checker/main/templates/screenWebApp.png?token=AB475LYA3AE6GEN74PCL5FDBIXESO" alt = "covid-icon-probabilty" width="auto" height="auto" align="middle" style="margin-top: 15px; margin-bottom: -20px;">
 </p>
 
 
 **Il funzionamento:** <br>
 
 <p align = "center">
-<img src="https://raw.githubusercontent.com/LaErre9/POC_MLOps-Covid_Probability_Infection_Checker/main/templates/scheme_function.png?token=AB475L3NW6UGVHZSWOZKYP3BIXD76" alt = "covid-icon-probabilty" width="auto" height="300" align="middle" style="margin-top: 15px; margin-bottom: -20px;">
+<img src="https://raw.githubusercontent.com/LaErre9/POC_MLOps-Covid_Probability_Infection_Checker/main/templates/scheme_function.png?token=AB475L3NW6UGVHZSWOZKYP3BIXD76" alt = "covid-icon-probabilty" width="auto" height="auto" align="middle" style="margin-top: 15px; margin-bottom: -20px;">
 </p>
 
 ## Il progetto
@@ -32,7 +32,7 @@ oppure nella *home* del repository e nella sezione *Environments* cliccare **cov
 *Il flusso del POC MLOps è*: <br>
 
 <p align = "center">
-<img src="https://raw.githubusercontent.com/LaErre9/POC_MLOps-Covid_Probability_Infection_Checker/main/templates/flussoPOCMLops.png?token=AB475L62GO53TX4WEPZOTNTBIXCEK" alt = "covid-icon-probabilty" width="auto" height="1000px" align="middle" style="margin-top: 15px; margin-bottom: -20px;">
+<img src="https://raw.githubusercontent.com/LaErre9/POC_MLOps-Covid_Probability_Infection_Checker/main/templates/flussoPOCMLops.png?token=AB475L62GO53TX4WEPZOTNTBIXCEK" alt = "covid-icon-probabilty" width="auto" height="auto" align="middle" style="margin-top: 15px; margin-bottom: -20px;">
 </p>
 
 
