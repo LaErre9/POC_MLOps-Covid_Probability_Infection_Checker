@@ -37,5 +37,5 @@ oppure nella *home* del repository e nella sezione *Environments* cliccare **cov
 
 
 ## Progetto realizzato per soli scopi dimostrativi ed educativi
-Il seguente repository è stato realizzato come supporto <lla tesi di Laurea: *Machine Learning Operations: principi, caratteristiche ed applicazione*, Università degli Studi di Napoli, Federico II,  realizzato da <a title="Antonio Romano" href="https://github.com/LaErre9" target="_blank" > Antonio Romano</a>
+Il seguente repository è stato realizzato come supporto alla tesi di Laurea: *Machine Learning Operations: principi, caratteristiche ed applicazione*, Università degli Studi di Napoli, Federico II,  realizzato da <a title="Antonio Romano" href="https://github.com/LaErre9" target="_blank" > Antonio Romano</a>
 
