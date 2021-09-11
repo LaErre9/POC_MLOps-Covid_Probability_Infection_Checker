@@ -7,12 +7,8 @@ import numpy as np
 
 # Algoritmi di Machine Learning
 from sklearn.linear_model import LogisticRegression
-from sklearn.linear_model import Lasso
+from sklearn.linear_model import Lasso # da utilizzare come test
 from sklearn.datasets import make_regression
-
-# Altre librerie
-import pickle
-import json
 
 # Configurazione del dataset e suddivisione dei dati in training e test set
 def data_split(data, ratio):
@@ -42,9 +38,10 @@ if __name__== "__main__":
     # Generazione di alcuni dati per la validazione
     clf = LogisticRegression()
     clf.fit(X_train, Y_train)
-    X_test, y = make_regression(1000, n_features=20)
+    X_test, y = make_regression(1000, n_features=20) # Per verificare il test automatizzato modifica i parametri interni
     
-    # Test del modello
+    # Test del modello, verifica se il modello è completo
     y_hat = clf.predict(X_test)
+
     
 
