@@ -20,7 +20,7 @@ oppure nella *home* del repository e nella sezione *Environments* cliccare **cov
 **Il funzionamento:** <br>
 
 <p align = "center">
-<img src="https://raw.githubusercontent.com/LaErre9/POC_MLOps-Covid_Probability_Infection_Checker/main/templates/scheme_function.png?token=AB475L3NW6UGVHZSWOZKYP3BIXD76" alt = "covid-icon-probabilty" width="auto" height="auto" align="middle" style="margin-top: 15px; margin-bottom: -20px;">
+<img src="https://raw.githubusercontent.com/LaErre9/POC_MLOps-Covid_Probability_Infection_Checker/main/templates/scheme_function.png?token=AB475L2KW3GNVL26SLBOT4DBI5F3O" alt = "covid-icon-probabilty" width="auto" height="auto" align="middle" style="margin-top: 15px; margin-bottom: -20px;">
 </p>
 
 ## Il progetto
