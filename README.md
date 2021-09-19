@@ -1,7 +1,7 @@
-<div align = "center" style = "float:left; margin - right:1em;" ><img src="https://raw.githubusercontent.com/LaErre9/POC_MLOps-Covid_Probability_Infection_Checker/main/templates/covid_probability_detector.png?token=AB475L7VVLSSF7KDB3NM25DBIODCE" alt = "covid-icon-probabilty" width="150" height="auto" style="margin-top: 15px; margin-bottom: -20px; float: left;"> <img src="https://raw.githubusercontent.com/LaErre9/POC_MLOps-Covid_Probability_Infection_Checker/main/templates/LogoMLOPs_ARinvented.png?token=AB475L25BUZU7OU25EXPE6TBIXAIW" alt = "MLOps-icon-AR" width="auto" height="150" style="margin-top: 15px; margin-bottom: -20px; margin-left: 20px;"></div>
+<div align = "center" style = "float:left; margin - right:1em;" ><img src="https://raw.githubusercontent.com/LaErre9/POC_MLOps-Covid_Probability_Infection_Checker/main/templates/covid_probability_detector.png?token=AB475L7VVLSSF7KDB3NM25DBIODCE" alt = "covid-icon-probabilty" width="130" height="auto" style="margin-top: 15px; margin-bottom: -20px; float: left;"> <img src="https://raw.githubusercontent.com/LaErre9/POC_MLOps-Covid_Probability_Infection_Checker/main/templates/LogoMLOPs_ARinvented.png?token=AB475L25BUZU7OU25EXPE6TBIXAIW" alt = "MLOps-icon-AR" width="auto" height="130" style="margin-top: 15px; margin-bottom: -20px; margin-left: 20px;"></div>
      
 # Proof of Concept - MLOps / COVID probability infection checker
-Il seguente repository è una piccola realizzazione di bozza progettuale per tracciare un progetto supportato dalle pratiche **MLOps**, utile per testare l’idea o l’ipotesi di progetto al fine di dimostrarne la fattibilità.
+Il seguente repository è una semplice realizzazione di bozza progettuale per tracciare un progetto supportato dalle pratiche **MLOps**, utile per testare l’idea o l’ipotesi di progetto al fine di dimostrarne la fattibilità.
 
 ## L'idea
 L’ idea è quella di predire una certa probabilità di infezione al COVID-19 in base ai sintomi o alle malattie che il paziente manifesta e guidarlo a come comportarsi in caso di alta probabilità di infezione. Ad esempio, se il sistema predice che il paziente X abbia una probabilità di infezione tra il 75% e il 100% allora verrà consigliato di consultare immediatamente un operatore sanitario e di rimanere nel suo domicilio. Se il sistema predice che il paziente Y abbia una probabilità di infezione tra il 50% e il 75% allora verrà consigliato di auto medicarsi in casa e se vuole può chiamare il medico di fiducia per ulteriori consultazioni utili per sollevarsi dai sintomi. Il modello ML sarà inglobato in una Web App in modo tale che sarà facilmente usabile dagli utenti. 
@@ -14,8 +14,9 @@ oppure nella *home* del repository e nella sezione *Environments* cliccare **cov
 
 <p align = "center">
 <img src="https://raw.githubusercontent.com/LaErre9/POC_MLOps-Covid_Probability_Infection_Checker/main/templates/screenWebApp.png?token=AB475LYA3AE6GEN74PCL5FDBIXESO" alt = "covid-icon-probabilty" width="auto" height="auto" align="middle" style="margin-top: 15px; margin-bottom: -20px;">
-</p>
+</p><br>
 
+:warning: **ATTENZIONE** *L’applicazione realizzata dall’autore è solo a scopo dimostrativo, pertanto la probabilità calcolata può risultare incerta giacché, come già detto in precedenza, il dataset è datato e non aggiornato e i sintomi del virus mutano e variano ogni giorno*
 
 **Il funzionamento:** <br>
 
@@ -24,6 +25,7 @@ oppure nella *home* del repository e nella sezione *Environments* cliccare **cov
 </p>
 
 ## Il progetto
+Il progetto è stato sviluppato seguendo i principi dell' *MLOps* utilizzando i seguenti tools:
 - Pipeline DVC
 - CI/CD con GitHub Actions
 - CML con GitHub Actions
